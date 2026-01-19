@@ -1,0 +1,462 @@
+:root {
+  --primary: #007bff;
+  --primary-light: #e7f1ff;
+  --success: #28a745;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --info: #17a2b8;
+  --bg-main: #f0f4f8;
+  --card-bg: #ffffff;
+  --text-dark: #2d3748;
+  --text-gray: #718096;
+  --border-radius: 16px;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.navbar-brand i {
+  font-size: 1.5rem;
+}
+
+.navbar-tabs {
+  display: flex;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-tab:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.nav-tab.active {
+  background: white;
+  color: #764ba2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-tab i {
+  font-size: 1.1rem;
+}
+
+.layout {
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Estilo Card */
+header {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo i {
+  font-size: 2.5rem;
+  color: var(--primary);
+}
+
+header h1 {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+header p {
+  color: var(--text-gray);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+/* Layout Principal */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 25px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 25px;
+  box-shadow: var(--shadow);
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Grid de Métricas (Tarjetas Pequeñas) */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+.metric-card {
+  background: #fff;
+  border: 1px solid #edf2f7;
+  border-radius: 12px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+}
+
+.metric-card.active {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.metric-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  color: white;
+  font-size: 1rem;
+}
+
+.metric-value {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.metric-name {
+  font-size: 0.75rem;
+  color: var(--text-gray);
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/* Calculadora Detallada (Panel Derecho) */
+.calculator-header {
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.formula-box {
+  background: #f8fafc;
+  border-left: 5px solid var(--primary);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.formula {
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Inputs Modernos */
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fdfdfd;
+  transition: all 0.2s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+/* Tabla de Resumen */
+.summary-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.summary-table th {
+  text-align: left;
+  padding: 12px;
+  color: var(--text-gray);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.summary-table td {
+  padding: 12px;
+  background: #f8fafc;
+}
+
+.summary-table tr td:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.summary-table tr td:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+/* Badges de Estado */
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.status-optimized {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.status-excelente {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.status-limpio {
+  background: #bee3f8;
+  color: #2c5282;
+}
+
+.status-bueno {
+  background: #cfe2ff;
+  color: #084298;
+}
+
+.status-moderado {
+  background: #feebc8;
+  color: #7c2d12;
+}
+
+.status-mejorable {
+  background: #fef3c7;
+  color: #78350f;
+}
+
+.status-alerta {
+  background: #fed7d7;
+  color: #822727;
+}
+
+.status-critico {
+  background: #fed7d7;
+  color: #822727;
+}
+
+.interpretation-box {
+  margin-top: 25px;
+  padding: 20px;
+  background: var(--primary-light);
+  border-radius: 12px;
+  color: #2c5282;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Botones de Descarga de PDF */
+.btn-download,
+.btn-download-complete {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-download {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  width: 100%;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.btn-download:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-download-complete {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  white-space: nowrap;
+}
+
+.btn-download-complete:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
+}
+
+.btn-download:disabled,
+.btn-download-complete:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-download i,
+.btn-download-complete i {
+  font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-gray);
+  margin-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.footer-content {
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-content {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .navbar-tabs {
+    justify-content: center;
+  }
+
+  .nav-tab {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  .btn-download-complete {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
